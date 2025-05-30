@@ -25,17 +25,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap; /* allow wrapping on small devices */
     }
 
     header h1 {
       font-size: 1.5rem;
       color: #333;
+      flex: 1 1 100%; /* full width on small screens */
+      margin-bottom: 0.5rem;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap; /* wrap nav items on small screens */
+      justify-content: center;
+      flex: 1 1 100%;
     }
 
     nav a {
@@ -43,6 +49,7 @@
       color: #333;
       font-weight: bold;
       transition: color 0.3s;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -59,7 +66,8 @@
     }
 
     .hero img {
-      width: 250px;
+      width: 100%;
+      max-width: 250px;
       height: auto;
       border-radius: 10px;
       margin-bottom: 1rem;
@@ -75,6 +83,8 @@
       max-width: 600px;
       margin-bottom: 1rem;
       color: #555;
+      padding: 0 1rem;
+      word-wrap: break-word;
     }
 
     .hero a {
@@ -82,6 +92,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
+      word-break: break-word;
     }
 
     .hero a:hover {
@@ -106,15 +117,30 @@
       color: #9d8189;
     }
 
+    /* Responsive layout for tablets and up */
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
         justify-content: space-around;
         text-align: left;
+        padding: 3rem 2rem;
       }
 
       .hero img {
         margin-bottom: 0;
+      }
+
+      nav ul {
+        justify-content: flex-end;
+      }
+
+      header h1 {
+        flex: 0;
+        margin-bottom: 0;
+      }
+
+      nav ul {
+        flex: 1;
       }
     }
   </style>
@@ -140,12 +166,12 @@
       <h2>Contact Me</h2>
       <p>📞 +91 9974346564</p>
       <p>🔗 LinkedIn: 
-        <a href="https://www.linkedin.com/in/alefiya-shaikh-56754b341" target="_blank">
+        <a href="https://www.linkedin.com/in/alefiya-shaikh-56754b341" target="_blank" rel="noopener noreferrer">
           linkedin.com/in/alefiya-shaikh-56754b341
         </a>
       </p>
       <p>✉️  
-        <a href="mailto:shaikhalefiya270@gmail.com" target="_blank">
+        <a href="mailto:shaikhalefiya270@gmail.com" target="_blank" rel="noopener noreferrer">
           shaikhalefiya270@gmail.com
         </a>
       </p>
