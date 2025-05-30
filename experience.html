@@ -26,17 +26,24 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #9d8189;
+    flex-wrap: wrap; /* allow wrapping on small screens */
   }
 
   header h1 {
     font-size: 1.5rem;
     color: #333;
+    flex: 1 1 100%; /* full width on small */
+    margin-bottom: 0.5rem;
+    text-align: center;
   }
 
   nav ul {
     list-style: none;
     display: flex;
     gap: 1rem;
+    flex: 1 1 100%;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   nav a {
@@ -44,6 +51,7 @@
     color: #333;
     font-weight: bold;
     transition: color 0.3s;
+    white-space: nowrap;
   }
 
   nav a:hover {
@@ -53,7 +61,7 @@
   main {
     max-width: 900px;
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 2rem 1rem;
     background-color: #f0efeb;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -90,6 +98,7 @@
   .experience-card p {
     margin-bottom: 0.5rem;
     color: #555;
+    word-wrap: break-word;
   }
 
   .experience-card ul {
@@ -114,6 +123,24 @@
 
   footer a:hover {
     color: #9d8189;
+  }
+
+  /* Responsive layout for tablets and up */
+  @media (min-width: 768px) {
+    header h1 {
+      flex: 0;
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    nav ul {
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    main {
+      padding: 2rem 3rem;
+    }
   }
 </style>
 </head>
