@@ -24,16 +24,23 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #9d8189;
+    flex-wrap: wrap; /* Wrap on small */
   }
 
   header h1 {
     font-size: 1.5rem;
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
   }
 
   nav ul {
     list-style: none;
     display: flex;
     gap: 1rem;
+    flex: 1 1 100%;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   nav a {
@@ -41,6 +48,7 @@
     color: #333;
     font-weight: bold;
     transition: color 0.3s;
+    white-space: nowrap;
   }
 
   nav a:hover {
@@ -50,7 +58,7 @@
   main, section {
     max-width: 900px;
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 2rem 1rem;
     background: #f0efeb;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -85,6 +93,7 @@
   .education-card p, .education-card span {
     color: #555;
     margin-bottom: 0.5rem;
+    word-wrap: break-word;
   }
 
   /* Split layout for skills */
@@ -105,6 +114,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
+    min-width: 250px;
   }
 
   .compact-skills > div:hover {
@@ -155,6 +165,7 @@
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+    margin-top: 2rem;
   }
 
   .combined-section ul {
@@ -165,6 +176,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
+    min-width: 250px;
   }
 
   .combined-section ul:hover {
@@ -207,6 +219,61 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    header h1 {
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    nav ul {
+      justify-content: center;
+    }
+
+    main, section {
+      padding: 1.5rem 1rem;
+      margin: 1rem auto;
+    }
+
+    /* Stack skills vertically on small */
+    .split-section, .combined-section {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .compact-skills > div,
+    .combined-section ul {
+      flex: 1 1 100%;
+      max-height: none;
+      min-width: auto;
+      overflow-y: visible;
+    }
+
+    /* Remove columns for soft skills for easier reading */
+    .skill-list.multi-column {
+      column-count: 1;
+    }
+  }
+
+  /* Medium devices */
+  @media (min-width: 768px) {
+    header h1 {
+      flex: 0;
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    nav ul {
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    main, section {
+      padding: 2rem 3rem;
+      margin: 2rem auto;
     }
   }
 </style>
