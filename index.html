@@ -25,17 +25,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap; /* allow wrapping on small devices */
     }
 
     header h1 {
       font-size: 1.5rem;
       color: #333;
+      flex: 1 1 100%; /* full width on small devices */
+      margin-bottom: 0.5rem;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap; /* allow nav items to wrap on small devices */
+      justify-content: center;
+      flex: 1 1 100%;
     }
 
     nav a {
@@ -43,6 +49,7 @@
       color: #333;
       font-weight: bold;
       transition: color 0.3s;
+      white-space: nowrap; /* prevent nav links from breaking */
     }
 
     nav a:hover {
@@ -59,7 +66,8 @@
     }
 
     .hero img {
-      width: 250px;
+      width: 100%;
+      max-width: 250px;
       height: auto;
       border-radius: 10px;
       margin-bottom: 1rem;
@@ -75,6 +83,7 @@
       max-width: 600px;
       margin-bottom: 1rem;
       color: #555;
+      padding: 0 1rem;
     }
 
     .hero .btn {
@@ -116,10 +125,24 @@
         flex-direction: row;
         justify-content: space-around;
         text-align: left;
+        padding: 3rem 2rem;
       }
 
       .hero img {
         margin-bottom: 0;
+      }
+
+      nav ul {
+        justify-content: flex-end;
+      }
+
+      header h1 {
+        flex: 0;
+        margin-bottom: 0;
+      }
+
+      nav ul {
+        flex: 1;
       }
     }
   </style>
